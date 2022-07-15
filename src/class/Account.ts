@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/lines-between-class-members */
 /* eslint-disable no-underscore-dangle */
+
+import Transaction from './Transaction.js';
+
 // OOP
 export default class Account {
   // properties
@@ -8,6 +11,7 @@ export default class Account {
   // protected - access from within and inherited classes
 
   username?: string | undefined;
+  private transactions: Transaction[] = [];
   // paraterer properties
   constructor(public readonly id: number, private _owner: string, private _balance: number) {}
 
