@@ -21,21 +21,23 @@ export default class Account {
     console.log(this._balance * tax);
   }
 
-  // changeOnerName(); // leisti pakeisti varda jei gautas slaptazodis yra  === secret
+  // eslint-disable-next-line consistent-return
+  changeOwnerName(newName: string, psw: string): string | void {
+    if (psw !== 'secret') {
+      console.log('blogas slaptazodis');
+      return 'blogas slaptazodis';
+    }
+    this._owner = newName;
+  } // leisti pakeisti varda jei gautas slaptazodis yra  === secret
 
-  // changeOwnerName();
-
-  // getter - get <savybes>
+  // getter - get <savybes pavadinimas>
   // setter
 
-  get balance(): number {
+  get balace(): number {
     return this._balance;
   }
 
   get owner(): string {
     return this._owner;
-  }
-  set owner(newName: string) {
-    this._owner = newName;
   }
 }
