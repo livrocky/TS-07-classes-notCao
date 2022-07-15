@@ -9,7 +9,7 @@ class Account {
 
   username?: string | undefined;
   // paraterer properties
-  constructor(public readonly id: number, public owner: string, private _balance: number) {}
+  constructor(public readonly id: number, private _owner: string, private _balance: number) {}
 
   deposit(value: number): void {
     if (value < 0) throw new Error('Invalid amount');
@@ -24,6 +24,10 @@ class Account {
   getBalace(): number {
     return this._balance;
   }
+
+  getOwner(): string {
+    return this._owner;
+  }
 }
 
 const acc = new Account(1, 'Serbentautas', 5);
@@ -33,7 +37,8 @@ console.log('acc.getBalace() ===', acc.getBalace());
 const acc2 = new Account(2, 'James Bond', 500);
 acc2.deposit(500);
 // padaryti owner nepasiekiama is isores
-acc2.owner = 'MIke';
+// acc2._owner = 'MIke';
+console.log('acc2.getOwner()===', acc2.getOwner());
 
 // pasirasom metoda kad gautu ownerio varda
 
