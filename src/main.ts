@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import Account from './class/Account.js';
+import Account, { AccountI } from './class/Account.js';
 import Transaction from './class/Transaction.js';
 
 console.log('main.ts');
@@ -16,4 +16,4 @@ console.log('acc2 ===', acc2);
 
 const tr1 = new Transaction('dog', 'cat', 125);
 // console.log('tr1 ===', tr1);
-// acc.deposit(tr1);
+// acc.deposit(tr1)

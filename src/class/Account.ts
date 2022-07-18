@@ -1,10 +1,14 @@
 /* eslint-disable @typescript-eslint/lines-between-class-members */
 /* eslint-disable no-underscore-dangle */
-
 import Transaction from './Transaction.js';
-
+/* eslint-disable no-underscore-dangle */
 // OOP
-export default class Account {
+
+export interface AccountI {
+  deposit(value: number): void;
+}
+
+export default class Account implements AccountI {
   // properties
   // public - default, access from anywere
   // private - access from whitnin class
