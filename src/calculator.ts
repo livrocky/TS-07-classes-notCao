@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable no-case-declarations */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import Calc from './class/Calc.js';
+import Calc, { ScientificCalc } from './class/Calc.js';
 
 // nusitaikom
 const num1InputEl = document.getElementById('n1') as HTMLInputElement | null;
@@ -16,14 +16,13 @@ console.log('calculator===', calculator);
 console.log('calculator===', calculator.add());
 
 // iskelti arrow funkcija is calculateEl sukurti atskira funkcija handleCalculations
-
-calculateEl?.addEventListener('mousedown', (): void => {
+const handleCalculations = (): void => {
   console.log('lifes good');
   if (!num1InputEl || !num2InputEl || !selectEl || !resultEl) return;
   const num1: number = num1InputEl.valueAsNumber;
   const num2: number = num2InputEl.valueAsNumber;
   const selectedOperationValue: string = selectEl.value;
-  const calculator = new Calc(num1, num2);
+  const calculator = new ScientificCalc(num1, num2);
   let result: number = 0;
   switch (selectedOperationValue) {
     case 'add':
@@ -33,12 +32,16 @@ calculateEl?.addEventListener('mousedown', (): void => {
     case 'minus':
       result = calculator.minus();
       break;
+    case 'addProc':
+      result = calculator.addProc();
+      break;
     default:
       throw new Error('Invalid operation');
   }
   resultEl.textContent = result.toString();
-});
+};
 
-selectEl?.addEventListener('change', (): void => {
-  console.log('change');
-});
+calculateEl?.addEventListener('mousedown', handleCalculations);
+
+selectEl?.addEventListener('change', handleCalculations);
+num2InputEl?.addEventListener('input', handleCalculations);

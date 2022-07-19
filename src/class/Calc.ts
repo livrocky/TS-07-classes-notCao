@@ -14,7 +14,6 @@ interface Calculator {
 }
 
 export default class Calc implements Calculator {
-  // firstName, lastName,
   constructor(public number1: number, public number2: number) {}
 
   add(): number {
@@ -31,5 +30,19 @@ export default class Calc implements Calculator {
     console.log(`If you add ${this.number1} to ${this.number2} you get `);
 
     return this.number1 * this.number2;
+  }
+
+  // aprasyti minus()
+}
+
+interface SCalc extends Calculator {
+  addProc(): number;
+}
+
+export class ScientificCalc extends Calc {
+  addProc(): number {
+    const proc = this.number1 * (this.number2 / 10 + 1);
+    console.log(`if you add ${this.number2}% to ${this.number1} ===${proc}`);
+    return proc;
   }
 }
