@@ -41,7 +41,7 @@ interface SCalc extends Calculator {
 
 export class ScientificCalc extends Calc {
   addProc(): number {
-    const proc = this.number1 * (this.number2 / 10 + 1);
+    const proc = this.number1 * (this.number2 / 100 + 1);
     console.log(`if you add ${this.number2}% to ${this.number1} ===${proc}`);
     return proc;
   }

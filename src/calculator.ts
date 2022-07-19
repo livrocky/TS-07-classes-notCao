@@ -32,6 +32,12 @@ const handleCalculations = (): void => {
     case 'minus':
       result = calculator.minus();
       break;
+    case 'divide':
+      result = calculator.divide();
+      break;
+    case 'multiply':
+      result = calculator.multiply();
+      break;
     case 'addProc':
       result = calculator.addProc();
       break;
