@@ -5,7 +5,15 @@
 /* eslint-disable @typescript-eslint/lines-between-class-members */
 /* eslint-disable no-underscore-dangle */
 
-export default class Calc {
+interface Calculator {
+  number1: number;
+  number2: number;
+  add(): number;
+  minus(): number;
+  // multiply(): number;
+}
+
+export default class Calc implements Calculator {
   // firstName, lastName,
   constructor(public number1: number, public number2: number) {}
 
@@ -25,9 +33,3 @@ export default class Calc {
     return this.number1 * this.number2;
   }
 }
-
-const calculator = new Calc(10, 10);
-console.log('calculator===', calculator);
-console.log('calculator.add()===', calculator.add());
-
-class ScientificCalc extends Calc {}

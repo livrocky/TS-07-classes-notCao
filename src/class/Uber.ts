@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/lines-between-class-members */
 /* eslint-disable class-methods-use-this */
 interface UberInterface {
+  // name: string;
   start(): void;
   stop(): void;
 }
